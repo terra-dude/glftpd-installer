@@ -1,5 +1,5 @@
 #!/bin/bash
-VER=1.4
+VER=1.5
 #---------------------------------------------------------------#
 #                                                               #
 # Mediainfo by Teqno                                       	#
@@ -49,23 +49,27 @@ else
             section=TV-2160
             release="$TV*2160p*"
             ;;
-            *.DANiSH.1080p.*|*.DANISH.1080p.*|*.SWEDiSH.1080p.*|*.FINNISH.1080p.*)
+            *.DAN[iI]SH.1080p.*|*.SWED[iI]SH.1080p.*|*.FINNISH.1080p.*)
             section=TV-NORDIC
             release="$TV*1080p*"
             ;;
-            *.NORWEGiAN.1080p.*)
+            *.NORWEG[iI]AN.1080p.*)
             section=TV-NO
+            release="$TV*1080p*"
+            ;;
+            *.1080p.BluRay.*)
+            section=TV-BLURAY
             release="$TV*1080p*"
             ;;
             *.1080p.*)
             section=TV-1080
             release="$TV*1080p*"
             ;;
-            *.DANiSH.720p.*|*.DANISH.720p.*|*.SWEDiSH.720p.*|*.FINNISH.720p.*)
+            *.DAN[iI]SH.720p.*|*.SWED[iI]SH.720p.*|*.FINNISH.720p.*)
             section=TV-NORDIC
             release="$TV*720p*"
             ;;
-            *.NORWEGiAN.720p.*)
+            *.NORWEG[iI]AN.720p.*)
             section=TV-NO
             release="$TV*720p*"
             ;;
@@ -73,10 +77,10 @@ else
             section=TV-720
             release="$TV*720p*"
             ;;
-	    *)
+            *)
             echo -e $HELP
-	    exit 0
-	    ;;
+            exit 0
+            ;;
 	esac
     fi
 
@@ -92,11 +96,11 @@ else
         else
             cd $GLROOT/bin
             if [ ! -d $TMP ]; then mkdir -m777 $GLROOT/tmp ; fi
-            for info in `ls $GLROOT/site/$section | grep -iv ".*NUKED.*" | grep -iv ".*INCOMPLETE.*" | grep "$release"`
+            for info in `ls $GLROOT/site/$section | grep -iv "(NUKED\|INCOMPLETE\|SAMPLEFIX\|DIRFIX)" | grep "$release"`
             do
                 if [ $(find $GLROOT/site/$section/$info -type f -name "* Complete -*" | wc -l ) = "0" ]
                 then
-                    for media in `ls $GLROOT/site/$section/$info | grep ".*.rar"`
+		    for media in `ls $GLROOT/site/$section/$info | grep ".*.rar" | head -1`
                     do
                         ./mediainfo-rar $GLROOT/site/$section/$info/$media > $TMPFILE
                         release=`cat $TMPFILE | grep "^Filename" | cut -d ":" -f2 | sed -e "s|$GLROOT/site/$section/||" -e 's|/.*||' -e 's/ //'`

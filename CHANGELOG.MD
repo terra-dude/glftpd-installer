@@ -28,6 +28,8 @@
 - Optimized Mediainfo and added the removal of tmp file since it could cause permission problems if run in shell and then in irc
 - Fixed so Mediainfo is no longer looking for incomplete or nuked releases
 - Added pattern for checking if release is TV Show or not in Mediainfo
+- Mediainfo broke when releases used different set of rar files ie .part01.rar
+- Added the removal of SAMPLEFIX and DIRFIX from list of releases in Mediainfo
 
 ### Updated
 
