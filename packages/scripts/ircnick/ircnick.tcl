@@ -27,4 +27,4 @@ if {[matchattr $nick +o]} {
 
 }
 
-putlog "Ircnick 1.0 by Teqno loaded"
+putlog "Ircnick 1.1 by Teqno loaded"

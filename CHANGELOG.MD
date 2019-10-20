@@ -40,6 +40,7 @@
 - Changed slots for default.user from 2 to 6
 - Removed remaining flood protections from eggdrop since they shown to cause havoc in chans under unusal circumstances ie netsplits
 - Added the ability to edit existing block of words with tur-predircheck_manager, added help syntax and examples
+- Added announce for ircnick in case user hasn't invited him/herself since the creation of log file
 
 ### Added
 - Included mediainfo script but needs to be manually installed
