@@ -98,7 +98,7 @@ else
 
 		for secpath in $secpaths
 		do
-		results="`$cleanup $glroot 2>/dev/null | grep -e "^Incomplete" | tr '\"' '\n' | grep -e "$secpath" | grep -v "/Subs" | tr -s '/' | sort`"
+		results="`chroot $glroot $cleanup 2>/dev/null | grep -e "^Incomplete" | tr '\"' '\n' | grep -e "$secpath" | grep -v "\/Sample\|\/Subs" | tr -s '/' | sort`"
 
 		if [ -z "$results" ]
 		then

@@ -30,6 +30,7 @@
 - Added pattern for checking if release is TV Show or not in Mediainfo
 - Mediainfo broke when releases used different set of rar files ie .part01.rar
 - Added the removal of SAMPLEFIX and DIRFIX from list of releases in Mediainfo
+- Excluded sample dir in incomplete-list-nuker, caused problems when people uploaded sfv into sample dirs
 
 ### Updated
 
