@@ -75,6 +75,7 @@ lred=4
 # ^^^^^^^^^^^^^             #
 #############################
 
+if [ "`find \"$glroot/tmp/incomplete-list-nuker.lock\" -type f -mmin +20`" ] ; then rm -f $glroot/tmp/incomplete-list-nuker.lock ; fi
 if [ -e "$glroot/tmp/incomplete-list-nuker.lock" ]
 then
 	echo "Check already running"
