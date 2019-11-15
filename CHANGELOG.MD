@@ -3,6 +3,7 @@
 ### Added
 
 - Included my own Tur-Predircheck Manager to enable management of blocks inside Tur-Predircheck through IRC
+- Included mediainfo script but needs to be manually installed
 
 ### Fixes
 
@@ -44,8 +45,6 @@
 - Added announce for ircnick in case user hasn't invited him/herself since the creation of log file
 - Added timecheck for lockfile in incomplete-list-nuker to avoid it not being run after a reboot of box
 
-### Added
-- Included mediainfo script but needs to be manually installed
 
 ## 9.0 - 2019-09-11
 
