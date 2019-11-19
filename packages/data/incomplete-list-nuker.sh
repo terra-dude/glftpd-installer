@@ -19,7 +19,7 @@ nukeprog=$glroot/bin/nuker
 nukeuser=glftpd
 
 # enter the reason for the nuke
-reason="-Auto- Not completed for 24 hours."
+reason="-Auto- Not completed for 12 hours."
 
 # enter the multiplier for the nuke
 multiplier=5
@@ -31,7 +31,7 @@ glconf=$glroot/etc/glftpd.conf
 now="$( date +%Y-%m-%d" "%H:%M:%S )"
 
 # minutes old for nuke to occur
-minutes=1440
+minutes=720
 
 # path to log file
 log=$glroot/ftp-data/logs/incomplete-list-nuker.log
