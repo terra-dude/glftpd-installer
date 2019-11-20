@@ -127,9 +127,8 @@ else
 
 					if [ "$secname" = "0DAY" ] || [ "$secname" = "MP3" ] || [ "$secname" = "FLAC" ]
 					then
-						release=`echo $secrel | awk -F "/" '{print $2}'`
-						day=`echo $secrel | awk -F "/" '{print $1}'`
-
+                            			release=`echo $secrel | awk -F "/" '{print $2}'`
+		                                day=`echo $secrel | awk -F "/" '{print $1}'`
 						if [ $(find $glroot/site/$secname/$secrel -maxdepth 0 -type f -iname "Approved_by*" | wc -l) == "0" ]
 						then
 							find $glroot/site/$secname/$day -maxdepth 1 -mmin +$minutes -type d -name $release -exec echo $now - Nuking incomplete release $release in section $secname >> $log ';'
