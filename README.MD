@@ -51,7 +51,10 @@ List of requirements for every script to work in the installer
 Debian:
 bc tcpd zip tcl tcl-dev tcl-tls libssl-dev libflac-dev autoconf make diffutils ncftp git lynx curl mariadb-server lm-sensors smartmontools
 
-BASH needs to be the default shell. To change from default DASH to BASH in Debian do dpkg-reconfigure dash
+BASH needs to be the default shell. To change from default DASH to BASH in Debian do 
+``` 
+dpkg-reconfigure dash
+``` 
 
 ## Screenshots
 
