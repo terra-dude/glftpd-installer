@@ -7,6 +7,7 @@
 ### Updated
 
 - Updated mediainfo to show Title for Audio when present instead of Format to highlight modes like DTS-HD MA 5.1 etc
+- Added colors to mediainfo better highlight relevant info
 
 
 ## 9.5 - 2019-11-15
