@@ -129,7 +129,7 @@ else
                         mabitrate=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Maximum bit rate  " | cut -d ":" -f2 | sed 's/ //'`
                         if [ "$mabitrate" ]; then echo -en " | Max Audio:${COLOR1} $mabitrate${COLOR2}" ; fi
                         formtitle=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Title  " | cut -d ":" -f2 | sed 's/ //'`
-                        if [ "$formtitle" ]
+                        if [[ "$formtitle" =~ "DTS-HD" ]]
                     	then
                     	    echo -en " |${COLOR1} $formtitle${COLOR2}"
                     	else
