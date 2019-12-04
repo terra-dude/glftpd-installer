@@ -1,5 +1,5 @@
 #!/bin/bash
-VER=1.5
+VER=1.6
 #---------------------------------------------------------------#
 #                                                               #
 # Mediainfo by Teqno                                       	#
@@ -120,11 +120,17 @@ else
                         if [ "$abitrate" ]; then echo -n " | Audio: $abitrate" ; fi
                         mabitrate=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Maximum bit rate  " | cut -d ":" -f2 | sed 's/ //'`
                         if [ "$mabitrate" ]; then echo -n " | Max Audio: $mabitrate" ; fi
-                        format=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Format  " | cut -d ":" -f2 | sed -e 's/ //' -e 's/UTF\-8//'`
-                        if [ "$format" ]; then echo -n " | $format" ; fi
-                        channels=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Channel(s)" | cut -d ":" -f2 | sed 's/ //'`
-                        if [ "$channels" ]; then echo -n " $channels" ; fi
-                        language=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Language  " | cut -d ":" -f2 | sed 's/ //'`
+			formtitle=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Title  " | cut -d ":" -f2 | sed 's/ //'`
+			if [ "$formtitle" ]
+			then
+			    echo -en " |${COLOR1} $formtitle${COLOR2}"
+			else
+			    format=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Format  " | cut -d ":" -f2 | sed -e 's/ //' -e 's/UTF\-8//'`
+			    if [ "$format" ]; then echo -en " |${COLOR1} $format${COLOR2}" ; fi
+			    channels=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Channel(s)" | cut -d ":" -f2 | sed 's/ //'`
+			    if [ "$channels" ]; then echo -en "${COLOR1} $channels${COLOR2}" ; fi
+			fi
+			language=`cat $TMPFILE | sed -n "/$audio/,/Forced/p" | grep "^Language  " | cut -d ":" -f2 | sed 's/ //'`
                         if [ "$language" ]; then echo -n " $language" ; fi
                         echo
                     done

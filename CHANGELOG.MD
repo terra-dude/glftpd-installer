@@ -4,6 +4,10 @@
 
 - Changed nuke of incompletes to 12 hours instead of 24 hours because of missed nukes of incompletes in 0DAY/MP3/FLAC sections due to pzs-ng limitations
 
+### Updated
+
+- Updated mediainfo to show Title for Audio when present instead of Format to highlight modes like DTS-HD MA 5.1 etc
+
 
 ## 9.5 - 2019-11-15
 
