@@ -22,6 +22,9 @@ SECTIONS="TV-720 TV-1080 TV-2160 TV-NO TV-NORDIC X264-1080 X265-2160"
 
 #--[ Script Start ]----------------------------------------------#
 
+SECTIONS=`for SEC in $SECTIONS; do echo -e "$COLOR3$SEC $COLOR2|"; done`
+SECTIONS=`echo $SECTIONS | sed 's/|$//'`
+
 HELP="
 ${COLOR2}Please enter full releasename ie ${COLOR3}Terminator.Salvation.2009.THEATRICAL.1080p.BluRay.x264-FLAME\n
 ${COLOR2}Only works for releases in: $SECTIONS\n
