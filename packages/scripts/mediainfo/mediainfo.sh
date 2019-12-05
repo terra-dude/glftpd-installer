@@ -115,7 +115,7 @@ else
                         echo -en "${COLOR1}$release${COLOR2}"
                         filesize=`cat $TMPFILE | grep "File size*" | grep "MiB\|GiB" | cut -d ":" -f2 | sed 's/ //'`
                         echo -en " |${COLOR1} $filesize${COLOR2}"
-                        duration=`cat $TMPFILE | sed -n '/General/,/Video/p' | grep "^Duration" | cut -d ":" -f2 | sed 's/ //'`
+			duration=`cat $TMPFILE | sed -n '/General/,/Video/p' | grep "^Duration" | uniq | cut -d ":" -f2 | sed 's/ //'`
                         echo -en " |${COLOR1} $duration${COLOR2}"
                         obitrate=`cat $TMPFILE | sed -n '/General/,/Video/p' | grep -v "Overall bit rate mode" | grep "Overall bit rate" | cut -d ":" -f2 | sed 's/ //'`
                         if [ "$obitrate" ]; then echo -en " | Overall:${COLOR1} $obitrate${COLOR2}" ; fi

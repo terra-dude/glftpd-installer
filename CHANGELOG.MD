@@ -3,6 +3,7 @@
 ### Fixes
 
 - Changed nuke of incompletes to 12 hours instead of 24 hours because of missed nukes of incompletes in 0DAY/MP3/FLAC sections due to pzs-ng limitations
+- With certain releases mediainfo spit out double Duration for video causing irc announce to split
 
 ### Updated
 
