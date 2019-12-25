@@ -2,9 +2,10 @@
 rm -rf /glftpd
 rm -rf packages/source
 rm -rf packages/sitewho
+rm -rf packages/sitewho
 rm -rf packages/eggdrop-1.8.4
-rm -rf packages/glftpd-LNX-2.09_1.1.0j_x86
-rm -rf packages/glftpd-LNX-2.09_1.1.0j_x64
+rm -rf packages/glftpd-LNX-*_x86
+rm -rf packages/glftpd-LNX-*_x64
 rm -rf packages/pzs-ng
 rm -f /etc/glftpd.conf
 rm -f site.rules

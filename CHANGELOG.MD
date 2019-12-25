@@ -11,6 +11,7 @@
 - Added colors to mediainfo to better highlight relevant info
 - Updated packages for glFTPD to the latest version 2.10 and updated glftpd.conf to reflect the new changes
 - Updated pzs-ng because of update to glFTPD 2.10 since old version was not compatible
+- Updated cleanup.sh script because of new versions of pzs-ng and glFTPD
 
 
 ## 9.5 - 2019-11-15
