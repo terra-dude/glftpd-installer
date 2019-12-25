@@ -6,7 +6,7 @@ git clone https://github.com/teqnodude/glftpd-installer
 
 ## Software
 
-*  glFTPD v2.09 for Linux both 32/64 bit version
+*  glFTPD v2.10 for Linux both 32/64 bit version
 *  Eggdrop v1.8.4 Stable Release
 
 ## Scripts
