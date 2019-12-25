@@ -3,8 +3,9 @@ userrejectinsecure      !-glftpd *
 denydiruncrypted        *
 denydatauncrypted       *
 
-DSA_CERT_FILE 		/glftpd/etc/ftpd-ecdsa.pem
-ALLOWED_PROTOCOLS 	TLSv1 TLSv1.1 TLSv1.2
+CERT_FILE 		/glftpd/etc/ftpd-ecdsa.pem
+TLS_MIN_PROTOCOL        TLSv1
+TLS_MAX_PROTOCOL        TLSv1.2
 
 rootpath 		/glftpd
 datapath 		/ftp-data
@@ -45,7 +46,9 @@ path-filter     	*	/ftp-data/misc/pathmsg		^[-A-Za-z0-9_.()[:space:]]*$  ^\.  ^-
 #        		<cap 1st letter>	<lower/upper>	character conversions...
 file_names      	0			lower           [:space:]_
 dir_names       	0			none            [:space:]_
-		
+
+display_size_unit       g
+display_speed_unit      m
 # use_dir_size k 	/site
 		
 show_totals     	*       	*
