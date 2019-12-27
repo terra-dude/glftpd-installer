@@ -120,16 +120,16 @@ function version
 	fi
 	case $version in
 		32)
-		PK1="glftpd-LNX-2.10_1.1.1d_x86.tgz"
-		PK1DIR="glftpd-LNX-2.10_1.1.1d_x86"
+		PK1="`ls packages | grep glftpd-LNX | grep x86`"
+		PK1DIR="`ls packages | grep glftpd-LNX | grep x86 | sed 's|.tgz||'`"
 		;;
 		64)
-		PK1="glftpd-LNX-2.10_1.1.1d_x64.tgz"
-		PK1DIR="glftpd-LNX-2.10_1.1.1d_x64"
+		PK1="`ls packages | grep glftpd-LNX | grep x64`"
+		PK1DIR="`ls packages | grep glftpd-LNX | grep x64 | sed 's|.tgz||'`"
 		;;
 		*)
-		PK1="glftpd-LNX-2.10_1.1.1d_x64.tgz"
-		PK1DIR="glftpd-LNX-2.10_1.1.1d_x64"
+		PK1="`ls packages | grep glftpd-LNX | grep x64`"
+		PK1DIR="`ls packages | grep glftpd-LNX | grep x64 | sed 's|.tgz||'`"
 		version="64"
 		;;
 	esac
