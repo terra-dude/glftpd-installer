@@ -46,11 +46,13 @@ git clone https://github.com/teqnodude/glftpd-installer
 
 ## Requirements
 
+Run as root and it has only been tested in Debian and Slackware
+
 List of requirements for every script to work in the installer
 
 Debian:
 ``` 
-apt-get install bc tcpd zip tcl tcl-dev tcl-tls libssl-dev libflac-dev autoconf make diffutils ncftp git lynx curl mariadb-server lm-sensors smartmontools
+apt-get install autoconf bc curl diffutils git libflac-dev libssl-dev lm-sensors lynx make mariadb-server ncftp passwd smartmontools tcl tcl-dev tcl-tls tcpd zip
 ``` 
 BASH needs to be the default shell. To change from default DASH to BASH in Debian do 
 ``` 
