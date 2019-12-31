@@ -1,5 +1,5 @@
 #!/bin/bash
-VER=1.2
+VER=1.3
 #--[ Intro ]----------------------------------------------------#
 #                                                       	#
 # Tur-predircheck_manager. A script for lazy people to block  	#
@@ -53,6 +53,7 @@ then
 	'$irctrigger' help - To view help about regexp and blocking / unblocking releases / groups
 	'$irctrigger' list sections - To list current blocklist for sections
 	'$irctrigger' list groups - To list current blocklist for groups
+	'$irctrigger' search <release/group> - To search for a specific release / group under DENYGROUPS and DENYDIRS
 	'$irctrigger' add release <sectionname> <regexp> - To block a release in existing section on first line that matches
         '$irctrigger' edit release <sectionname> startword <regexp> - To edit and add to existing block of words in existing section on first line that matches
         '$irctrigger' edit release <sectionname> startword - To edit and remove existing block of word in existing section on first line that matches
@@ -152,6 +153,12 @@ fi
 if [ "$ARGS" = "list groups" ]
 then
 	$glroot/bin/sed -n '/DENYGROUPS=\"/,/$/p' $predircheck
+fi
+
+if [[ "$ARGS" = "search"* ]]
+then
+        search=`echo $ARGS | awk -F " " '{print $2}'`
+        sed -n "/DENYGROUPS/,/ALLOWDIRS/p" $predircheck | grep -i "$search"
 fi
 
 if [[ "$ARGS" = "add release"* ]]

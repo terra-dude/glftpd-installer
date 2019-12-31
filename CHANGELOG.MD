@@ -4,6 +4,10 @@
 
 - Free: in statline didn't follow display_size_unit in glftpd.conf because developer forgot to implement new cookies.
 
+### Updated
+
+- Included search function in tur-predircheck_manager to make it easier spot blocks in large blocklists
+
 
 ## 9.6 - 2019-12-25
 
