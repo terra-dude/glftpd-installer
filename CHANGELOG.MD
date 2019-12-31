@@ -7,6 +7,7 @@
 ### Updated
 
 - Included search function in tur-predircheck_manager to make it easier spot blocks in large blocklists
+- Updated packages for glFTPD to version 2.10a
 
 
 ## 9.6 - 2019-12-25
