@@ -8,6 +8,7 @@
 
 - Included search function in tur-predircheck_manager to make it easier spot blocks in large blocklists
 - Updated packages for glFTPD to version 2.10a
+- Updated section_manager to remove line from crontab related to the creation of dated dirs if no dated sections are found.
 
 
 ## 9.6 - 2019-12-25

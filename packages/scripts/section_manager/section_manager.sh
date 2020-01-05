@@ -1,5 +1,5 @@
 #!/bin/bash
-VER=1.1
+VER=1.2
 #----------------------------------------------------------------#
 #								 #
 # Section Manager by Teqno     			 		 #
@@ -358,6 +358,11 @@ function psxcimdb
 	    echo "PSXC-IMDB config file not found"
     fi
 }
+
+if [[ "$(ls $glroot/site | grep -iw ^0DAY | tr '[a-z]' '[A-Z]')" != "0DAY" && "$(ls $glroot/site | grep -w ^FLAC | tr '[a-z]' '[A-Z]')" != "FLAC" && "$(ls $glroot/site | grep -w ^MP3 | tr '[a-z]' '[A-Z]')" != "MP3" ]] ;
+then
+        sed -i /dated.sh/d /var/spool/cron/crontabs/root
+fi
 
 start
 pzsng
