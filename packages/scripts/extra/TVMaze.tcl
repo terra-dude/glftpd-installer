@@ -23,6 +23,7 @@
 # 4. Rehash or restart your eggdrop for the changes to take effect.
 #
 # Changelog:
+# - 20201020 - TeRRa:   Added Language to announcement
 # - 20200223 - Sked:	Add average rating as variable (thanks to teqnodude)
 # - 20200222 - Sked:	Use https (thanks to teqnodude)
 # - 20190815 - Sked:	Fix finding shows with newer Tcl packages
@@ -127,6 +128,7 @@ namespace eval ::ngBot::plugin::TVMaze {
 	set ${np}::zeroconvert(%tvmaze_episode_title)             "N/A"
         set ${np}::zeroconvert(%tvmaze_show_rating)               "N/A"
         set ${np}::zeroconvert(%tvmaze_show_imdb)                 "N/A"
+        set ${np}::zeroconvert(%tvmaze_show_lange)                "N/A"
 	##
 	##################################################
 
@@ -393,7 +395,7 @@ namespace eval ::ngBot::plugin::TVMaze {
 						show_url show_type show_premiered \
 						show_started show_ended show_airtime show_runtime show_rating \
 						episode_url episode_season_episode episode_season episode_number \
-						episode_original_airdate episode_title show_rating show_imdb]
+						episode_original_airdate episode_title show_rating show_imdb show_lang]
 
 		set show_str $string
 		if {(![regexp -- {^(.*?)(\d+x\d+|[sS]\d+[eE]\d+).*$} $string -> show_str episode_str]) && ([string is true -strict $strict])} {
@@ -440,6 +442,7 @@ namespace eval ::ngBot::plugin::TVMaze {
 		regexp {\"name\":\"(.*?)\"} $data -> info(show_name)
 		regexp {\"url\":\"(.*?)\"} $data -> info(show_url)
 		set info(show_url) [regsub "http" $info(show_url) "https"]
+		regexp {\"language\":\"(.*?)\"} $data -> info(show_lang)
 		regexp {\"status\":\"(.*?)\"} $data -> info(show_status)
 		regexp {\"country\":.*?\"code\":\"(.*?)\"} $data -> info(show_country)
 		regexp {\"premiered\":\"(.*?)\"} $data -> info(show_premiered)
@@ -547,6 +550,7 @@ namespace eval ::ngBot::plugin::TVMaze {
 			regexp {\"name\":\"(.*?)\"} $data -> info(episode_title)
 			regexp {\"url\":\"(.*?)\"} $data -> info(episode_url)
 			regexp {\"airdate\":\"(.*?)\"} $data -> info(episode_original_airdate)
+			regexp {\"language\":\"(.*?)\"} $data -> info(show_lang)
 
 			regexp {\"season\":(\d+)} $data -> info(episode_season)
 			regexp {\"number\":(\d+)} $data -> info(episode_number)
